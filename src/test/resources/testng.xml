@@ -4,7 +4,7 @@
     <parameter name="url" value="http://www.blazedemo.com"/>
     <test verbose="0" name="Blazedemo smoke tests" >
         <classes>
-            <class name="test.automation.school.test.CucumberTest"/>
+            <class name="test.automation.cucumber.test.CucumberTest"/>
         </classes>
     </test>
 </suite>

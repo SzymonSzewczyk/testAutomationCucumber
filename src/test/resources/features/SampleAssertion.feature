@@ -2,7 +2,7 @@ Feature: Sample assertion test
   Sample tests showing usage of assertions
 
   Background:
-    Given Choose flight page opened
+    Given Blazedemo choose flight page opened
 
   Scenario: Verify Flights Order
     When Flight picked up from "Paris" to "Buenos Aires"
