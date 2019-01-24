@@ -22,4 +22,25 @@ public class FlightOptionsStepDefinition extends StepDefinition {
         new FlightOptionsPage(driverHandler.getDriver())
                 .clickFlightButton(flightIndex);
     }
+
+    @Then("Displayed price for {string} is {string}")
+    public void displayedPriceForIs(String airline, String price) {
+        new FlightOptionsPage(driverHandler.getDriver())
+                .check(new FlightOptionsAssertion())
+                .verifyPriceForAirline(airline,price);
+    }
+
+    @Then("Text is displayed: Flights from {string} to {string}")
+    public void textIsDisplayedFlightsFromTo(String fromCity, String toCity) {
+        new FlightOptionsPage((driverHandler.getDriver()))
+                .check(new FlightOptionsAssertion())
+                .verifyFromToCities(fromCity, toCity);
+    }
+
+    @Then("Displayed {string} for {string}")
+    public void displayedFor(String airline, String flightNo) {
+        new FlightOptionsPage((driverHandler.getDriver()))
+                .check(new FlightOptionsAssertion())
+                .verifyAirlineForFlightNo(airline, flightNo);
+    }
 }

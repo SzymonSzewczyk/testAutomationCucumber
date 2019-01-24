@@ -33,4 +33,21 @@ public class FlightOptionsAssertion extends Assertion<FlightOptionsPage> {
         assertTrue(page.waitUntil(condition -> !page.getFlights().isEmpty()), "Flights table is empty!");
         return this;
     }
+
+    public FlightOptionsAssertion verifyPriceForAirline(String airline, String price) {
+        assertEquals("There is no price "+price+" for "+airline +".", page.getActualPriceForAirline(airline).getText(), price);
+        return this;
+    }
+
+    public FlightOptionsAssertion verifyFromToCities(String fromCity, String toCity) {
+        assertEquals("Displayed cities From ("+fromCity+")or To ("+toCity+") are different than actual.",
+                page.getTitleWithCitiesFromAndTo().getText(), "Flights from "+fromCity+" to "+toCity+":");
+
+        return this;
+    }
+
+    public FlightOptionsAssertion verifyAirlineForFlightNo(String airline, String flightNo) {
+        assertEquals("flight number \""+flightNo+"\" is not proper for airline: "+airline, page.getAirline(flightNo).getText(), airline);
+        return this;
+    }
 }

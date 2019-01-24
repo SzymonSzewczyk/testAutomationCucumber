@@ -8,7 +8,7 @@ import test.automation.cucumber.stepdefinition.common.StepDefinition;
 public class FlightPickupStepDefinition extends StepDefinition {
 
     @Given("Blazedemo choose flight page opened")
-    public void chooSeFlightPageOpened() {
+    public void chooseFlightPageOpened() {
         new ChooseFlightPage(driverHandler.getDriver(), "http://www.blazedemo.com");
     }
 
@@ -18,5 +18,16 @@ public class FlightPickupStepDefinition extends StepDefinition {
             .selectDepartureCity(from)
             .selectDestinationCity(to)
             .clickFindFlights();
+    }
+
+    @Given("Flight picked from {string} to {string} with flight {int} selected")
+    public void flightPickedFromToWithNumberOfRow(String from, String to, int numberOfRow) {
+        new ChooseFlightPage(driverHandler.getDriver(), "http://www.blazedemo.com")
+                .selectDepartureCity(from)
+                .selectDestinationCity(to)
+                .clickFindFlights()
+                .clickFlightButton(numberOfRow);
+
+
     }
 }
